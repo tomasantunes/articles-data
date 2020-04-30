@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Articles Data</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='fonts/fontawesome/css/all.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/form-style1.css') }}">
+	<style>
+
+	</style>
+</head>
+<body>
+	<div id="app">
+		<h3>Top 20</h3>
+		<ul>
+			{% for title in top20 %}
+				<li>{{ title }}</li>
+			{% endfor %}
+		</ul>
+		<h3>Random Quote</h3>
+		<p>{{ quote }}</p>
+	</div>
+	<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/knockout.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/easy.js') }}"></script>
+	<script>
+		
+	</script>
+</body>
+</html>
