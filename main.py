@@ -14,9 +14,9 @@ app.config.from_object(__name__)
 file = r'articles.csv'
 df = pd.read_csv(file)
 
-df1 = df.sort_values(by="claps", ascending=False).head(20)
+df1 = df.drop_duplicates(subset = ["title"])
 
-print(df1)
+top20 = df1.sort_values(by="claps", ascending=False).head(20)['title'].tolist()
 
 def getRandomQuote():
 	text = df['text'].unique().tolist()
@@ -27,7 +27,6 @@ def getRandomQuote():
 
 @app.route("/")
 def home():
-	top20 = df1['title'].unique().tolist()
 	quote = getRandomQuote()
 	return render_template("home.html", top20=top20, quote=quote)
 
